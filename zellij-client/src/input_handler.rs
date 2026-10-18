@@ -458,6 +458,7 @@ impl InputHandler {
             | Action::NewFloatingPane { .. }
             | Action::ToggleFloatingPanes
             | Action::TogglePaneEmbedOrFloating
+            | Action::Fourify
             | Action::NewTab { .. }
             | Action::GoToNextTab
             | Action::GoToPreviousTab

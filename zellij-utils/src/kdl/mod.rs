@@ -89,6 +89,7 @@ macro_rules! parse_kdl_action_arguments {
                 "TogglePaneFrames" => Ok(Action::TogglePaneFrames),
                 "ToggleActiveSyncTab" => Ok(Action::ToggleActiveSyncTab),
                 "TogglePaneEmbedOrFloating" => Ok(Action::TogglePaneEmbedOrFloating),
+                "Fourify" => Ok(Action::Fourify),
                 "ToggleFloatingPanes" => Ok(Action::ToggleFloatingPanes),
                 "ShowFloatingPanes" => Ok(Action::ShowFloatingPanes { tab_id: None }),
                 "HideFloatingPanes" => Ok(Action::HideFloatingPanes { tab_id: None }),
@@ -811,6 +812,7 @@ impl Action {
                 Some(node)
             },
             Action::TogglePaneEmbedOrFloating => Some(KdlNode::new("TogglePaneEmbedOrFloating")),
+            Action::Fourify => Some(KdlNode::new("Fourify")),
             Action::ToggleFloatingPanes => Some(KdlNode::new("ToggleFloatingPanes")),
             Action::ShowFloatingPanes { tab_id } => {
                 let mut node = KdlNode::new("ShowFloatingPanes");
@@ -1422,6 +1424,7 @@ impl Action {
                 }
                 Some(node)
             },
+            Action::Fourify => Some(KdlNode::new("Fourify")),
             Action::TogglePanePinned => Some(KdlNode::new("TogglePanePinned")),
             Action::TogglePaneInGroup => Some(KdlNode::new("TogglePaneInGroup")),
             Action::ToggleGroupMarking => Some(KdlNode::new("ToggleGroupMarking")),
@@ -1821,6 +1824,9 @@ impl TryFrom<(&KdlNode, &Options)> for Action {
             "TogglePaneEmbedOrFloating" => {
                 parse_kdl_action_arguments!(action_name, action_arguments, kdl_action)
             },
+            "Fourify" => {
+                parse_kdl_action_arguments!(action_name, action_arguments, kdl_action)
+            }
             "ToggleFloatingPanes" => {
                 parse_kdl_action_arguments!(action_name, action_arguments, kdl_action)
             },
@@ -2475,6 +2481,7 @@ impl TryFrom<(&KdlNode, &Options)> for Action {
                     kdl_action
                 )
             },
+            "Fourify" => Ok(Action::Fourify),
             "BreakPane" => Ok(Action::BreakPane),
             "BreakPaneRight" => Ok(Action::BreakPaneRight),
             "BreakPaneLeft" => Ok(Action::BreakPaneLeft),

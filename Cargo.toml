@@ -11,6 +11,7 @@ repository.workspace = true
 edition.workspace = true
 version.workspace = true
 rust-version.workspace = true
+default-run = "zellij"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

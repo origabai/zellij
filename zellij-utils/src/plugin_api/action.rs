@@ -1739,6 +1739,12 @@ impl TryFrom<Action> for ProtobufAction {
                 name: ProtobufActionName::TogglePaneEmbedOrFloating as i32,
                 optional_payload: None,
             }),
+
+            Action::Fourify => Ok(ProtobufAction {
+                name: ProtobufActionName::Fourify as i32,
+                optional_payload: None,
+            }),
+
             Action::ToggleFloatingPanes => Ok(ProtobufAction {
                 name: ProtobufActionName::ToggleFloatingPanes as i32,
                 optional_payload: None,

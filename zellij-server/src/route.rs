@@ -1146,6 +1146,15 @@ fn route_action_with_origin(
                 ))
                 .with_context(err_context)?;
         },
+        Action::Fourify => {
+            senders
+                .send_to_screen(ScreenInstruction::ToggleFloatingPanes(
+                    client_id,
+                    default_shell.clone(),
+                    Some(NotificationEnd::new(completion_tx)),
+                ))
+                .with_context(err_context)?;
+        },
         Action::PaneNameInput { input } => {
             senders
                 .send_to_screen(ScreenInstruction::UpdatePaneName(

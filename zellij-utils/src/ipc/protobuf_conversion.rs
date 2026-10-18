@@ -1438,6 +1438,7 @@ impl From<crate::input::actions::Action>
             ToggleNoUiFullscreenByPaneIdAction,
             TogglePaneBorderlessAction,
             TogglePaneEmbedOrFloatingAction,
+            FourifyAction,
             TogglePaneEmbedOrFloatingByPaneIdAction,
             TogglePaneFramesAction,
             TogglePaneInGroupAction,
@@ -1758,6 +1759,9 @@ impl From<crate::input::actions::Action>
             }),
             crate::input::actions::Action::TogglePaneEmbedOrFloating => {
                 ActionType::TogglePaneEmbedOrFloating(TogglePaneEmbedOrFloatingAction {})
+            },
+            crate::input::actions::Action::Fourify => {
+                ActionType::Fourify(FourifyAction {})
             },
             crate::input::actions::Action::ToggleFloatingPanes => {
                 ActionType::ToggleFloatingPanes(ToggleFloatingPanesAction {})
@@ -2718,6 +2722,9 @@ impl TryFrom<crate::client_server_contract::client_server_contract::Action>
             },
             ActionType::ToggleFloatingPanes(_) => {
                 Ok(crate::input::actions::Action::ToggleFloatingPanes)
+            },
+            ActionType::Fourify(_) => {
+                Ok(crate::input::actions::Action::Fourify)
             },
             ActionType::ShowFloatingPanes(a) => {
                 Ok(crate::input::actions::Action::ShowFloatingPanes {

@@ -128,6 +128,7 @@ fn get_keys_and_hints(mi: &ModeInfo) -> Vec<(String, String, Vec<KeyWithModifier
         (s("Toggle Floating"), s("Floating"),
             action_key(&km, &[A::ToggleFloatingPanes, TO_NORMAL])),
         (s("Toggle Embed"), s("Embed"), action_key(&km, &[A::TogglePaneEmbedOrFloating, TO_NORMAL])),
+        (s("Fourify"), s("Fourify"), action_key(&km, &[A::Fourify, TO_NORMAL])),
         (s("Select pane"), s("Select"), to_normal_key),
     ]} else if mi.mode == IM::Tab {
         let old_keymap = mi.get_mode_keybinds();

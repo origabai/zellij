@@ -277,6 +277,10 @@ pub enum Action {
         pane_name: Option<String>,
         start_suppressed: bool,
     },
+
+    // split the pane into four panes
+    Fourify,
+
     /// Returns: Created pane ID (format: terminal_<id>)
     NewBlockingPane {
         placement: NewPanePlacement,
