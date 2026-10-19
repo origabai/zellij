@@ -195,6 +195,7 @@ pub const ACTION_SPECS: &[ActionSpec] = &[
         &[child("name", "Tab name", ArgKind::Text)],
     ),
     plain("CloseFocus", "Close the focused pane"),
+    plain("Fourify", "Fourify"),
     plain("CloseTab", "Close the current tab"),
     with_args(
         "MoveFocus",

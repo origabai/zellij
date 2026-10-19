@@ -45,6 +45,7 @@ keybinds {
         bind "p" { SwitchFocus; }
         bind "n" { NewPane; }
         bind "x" { CloseFocus; }
+        bind "y" {Fourify; }
         bind "f" { ToggleFocusFullscreen; }
         bind "Shift f" { ToggleFocusNoUiFullscreen; }
         bind "z" { TogglePaneFrames; }
