@@ -804,6 +804,7 @@ impl Action {
                 vec![Action::TogglePaneEmbedOrFloating]
             },
             Action::CloseFocusByPaneId { .. } => vec![Action::CloseFocus],
+            Action::Fourify { .. } => vec![Action::Fourify],
             Action::TogglePanePinnedByPaneId { .. } => vec![Action::TogglePanePinned],
             Action::TogglePaneInGroupByPaneId { .. } => vec![Action::TogglePaneInGroup],
             Action::StartRenamePaneByPaneId { .. } => vec![

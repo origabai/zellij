@@ -48,7 +48,7 @@ keybinds {
         bind "z" { TogglePaneFrames; SwitchToMode "Locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Locked"; }
-        bind "y" { Fourify; SwitchToMode "Locked"; }
+        bind "+" { Fourify; SwitchToMode "Locked"; }
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
         bind "i" { TogglePanePinned; SwitchToMode "Locked"; }
     }

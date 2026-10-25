@@ -32,6 +32,7 @@ keybinds clear-defaults=true {
         bind "r" { NewPane "Right"; SwitchToMode "Locked"; }
         bind "s" { NewPane "stacked"; SwitchToMode "Locked"; }
         bind "x" { CloseFocus; SwitchToMode "Locked"; }
+        bind "+" { Fourify; SwitchToMode "Locked"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
         bind "Shift f" { ToggleFocusNoUiFullscreen; SwitchToMode "Locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Locked"; }

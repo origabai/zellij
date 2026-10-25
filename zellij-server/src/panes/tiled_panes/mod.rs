@@ -746,10 +746,11 @@ impl TiledPanes {
         self.reset_boundaries();
     }
     pub fn can_split_pane_horizontally(&mut self, client_id: ClientId) -> bool {
-        match self.active_panes.get(&client_id).copied() {
-            Some(active_pane_id) => self.can_split_pane_id_horizontally(active_pane_id),
-            None => false,
-        }
+        return true;
+        // match self.active_panes.get(&client_id).copied() {
+        //     Some(active_pane_id) => self.can_split_pane_id_horizontally(active_pane_id),
+        //     None => false,
+        // }
     }
     pub fn can_split_pane_id_horizontally(&mut self, active_pane_id: PaneId) -> bool {
         if let Some(active_pane) = self.panes.get_mut(&active_pane_id) {
@@ -775,10 +776,11 @@ impl TiledPanes {
         false
     }
     pub fn can_split_pane_vertically(&mut self, client_id: ClientId) -> bool {
-        match self.active_panes.get(&client_id).copied() {
-            Some(active_pane_id) => self.can_split_pane_id_vertically(active_pane_id),
-            None => false,
-        }
+        return true;
+        // match self.active_panes.get(&client_id).copied() {
+        //     Some(active_pane_id) => self.can_split_pane_id_vertically(active_pane_id),
+        //     None => false,
+        // }
     }
     pub fn can_split_pane_id_vertically(&mut self, active_pane_id: PaneId) -> bool {
         if let Some(active_pane) = self.panes.get_mut(&active_pane_id) {

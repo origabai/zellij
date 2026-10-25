@@ -10359,7 +10359,6 @@ pub(crate) fn screen_thread_main(
                 mut completion_tx,
                 set_blocking,
             ) => {
-                log::info!("aaaaaaaaaaaa");
                 completion_tx.as_mut().map(|c| c.set_affected_pane_id(pid));
 
                 let (blocking_notification, mut completion_tx) = if set_blocking {

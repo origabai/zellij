@@ -1147,13 +1147,76 @@ fn route_action_with_origin(
                 .with_context(err_context)?;
         },
         Action::Fourify => {
+            let mut shell = default_shell.clone();
+            let mut new_pane_placement = NewPanePlacement::Tiled {
+                direction: Some(Direction::Left),
+                borderless: None,
+                border_style: None,
+            };
+            let notif = Some(NotificationEnd::new(completion_tx));
+
+            senders.send_to_pty(PtyInstruction::SpawnTerminal(
+                shell,
+                None,
+                new_pane_placement,
+                false,
+                ClientTabIndexOrPaneId::ClientId(client_id),
+                notif.clone(),
+                false, // set_blocking
+                None
+            ))
+            .with_context(err_context)?;
+
+            shell = default_shell.clone();
+            new_pane_placement = NewPanePlacement::Tiled {
+                direction: Some(Direction::Down),
+                borderless: None,
+                border_style: None,
+            };
+
+            senders.send_to_pty(PtyInstruction::SpawnTerminal(
+                shell,
+                None,
+                new_pane_placement,
+                false,
+                ClientTabIndexOrPaneId::ClientId(client_id),
+                notif.clone(),
+                false, // set_blocking
+                None
+            ))
+            .with_context(err_context)?;
+
+            let duration = Duration::from_millis(10);
+            thread::sleep(duration);
+
+            let screen_instr = ScreenInstruction::MoveFocusLeft(client_id, notif.clone());
             senders
-                .send_to_screen(ScreenInstruction::ToggleFloatingPanes(
-                    client_id,
-                    default_shell.clone(),
-                    Some(NotificationEnd::new(completion_tx)),
-                ))
+                .send_to_screen(screen_instr)
                 .with_context(err_context)?;
+
+            let duration = Duration::from_millis(10);
+            thread::sleep(duration);
+
+
+
+            shell = default_shell.clone();
+            new_pane_placement = NewPanePlacement::Tiled {
+                direction: Some(Direction::Down),
+                borderless: None,
+                border_style: None,
+            };
+
+            senders.send_to_pty(PtyInstruction::SpawnTerminal(
+                shell,
+                None,
+                new_pane_placement,
+                false,
+                ClientTabIndexOrPaneId::ClientId(client_id),
+                notif.clone(),
+                false, // set_blocking
+                None
+            ))
+            .with_context(err_context)?;
         },
         Action::PaneNameInput { input } => {
             senders

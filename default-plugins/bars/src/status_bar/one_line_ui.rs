@@ -1511,13 +1511,16 @@ fn get_keys_and_hints(mi: &ModeInfo) -> Vec<(String, String, Vec<KeyWithModifier
         }
     }
 
+    // km.push((KeyWithModifier::new(BareKey::Char('+')), vec![&[A::Fourify, TO_NORMAL]]));
+
     if mi.mode == IM::Pane { vec![
         (s("New"), s("New"), single_action_key(&km, &[A::NewPane{direction: None, pane_name: None, start_suppressed: false}, TO_NORMAL])),
         (s("Change Focus"), s("Move"),
             action_key_group(&km, &[&[A::MoveFocus{direction: Dir::Left}], &[A::MoveFocus{direction: Dir::Down}],
                 &[A::MoveFocus{direction: Dir::Up}], &[A::MoveFocus{direction: Dir::Right}]])),
         (s("Close"), s("Close"), single_action_key(&km, &[A::CloseFocus, TO_NORMAL])),
-        (s("Fourify"), s("Fourify"), single_action_key(&km, &[A::Fourify, TO_NORMAL])),
+        // (s("Fourify"), s("Fourify"), single_action_key(&km, &[A::Fourify, TO_NORMAL])),
+        (s("Fourify"), s("Fourify"), vec![KeyWithModifier::new(BareKey::Char('+'))]),
         (s("Rename"), s("Rename"),
             single_action_key(&km, &[A::SwitchToMode{input_mode: IM::RenamePane}, A::PaneNameInput{input: vec![0]}])),
         (s("Toggle Fullscreen"), s("Fullscreen"), single_action_key(&km, &[A::ToggleFocusFullscreen, TO_NORMAL])),

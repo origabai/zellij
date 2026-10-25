@@ -235,6 +235,8 @@ keybinds:
           key: [Char: 'r',]
         - action: [CloseFocus,]
           key: [Char: 'x',]
+        - action: [Fourify, ]
+          key: [Char: '+']
         - action: [ToggleFocusFullscreen,]
           key: [Char: 'f',]
         - action: [FocusPreviousPane,]
